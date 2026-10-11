@@ -1,0 +1,15 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b1020;
+  --surface: #11192c;
+  --text: #f2f4fd;
+  --muted: #abb7d0;
+  --line: #2c3750;
+  --accent: #635bce;
+  --accent-light: #b9b5ff;
+  --focus: #c9d9ff;
+  --error: #ff9aab;
+  --success: #83dbb4;
+  --font: "Avenir Next", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --mono: "SFMono-Regular", Consolas, monospace;
+}

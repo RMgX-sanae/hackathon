@@ -1,0 +1,12 @@
+.bv-demo-toolbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin:22px 0; padding:16px 0; border-block:1px solid #3e5265; font-family:"Avenir Next","PingFang SC",system-ui,sans-serif; }
+.bv-demo-toolbar strong { font-size:16px; color:#eaf2fc; }
+.bv-demo-toolbar p { margin:6px 0 0; max-width:65ch; color:#bdcbdc; font-size:13px; line-height:1.7; }
+.bv-demo-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.bv-demo-actions button { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 14px; border:1px solid #6f9179; border-radius:8px; color:#eaf2fc; background:#203c30; cursor:pointer; font:inherit; font-size:14px; }
+.bv-demo-actions .bv-demo-primary { background:#b2f5bd; color:#152d26; font-weight:600; }
+.bv-demo-actions svg { width:18px; height:18px; }
+.bv-demo-actions button:focus-visible { outline:3px solid #eaf2fc; outline-offset:4px; }
+.bv-demo-actions button:active { border-color:#eaf2fc; }
+@media(hover:hover) and (pointer:fine) { .bv-demo-actions button:hover { border-color:#eaf2fc; } }
+@media(max-width:600px) { .bv-demo-actions { width:100%; } .bv-demo-actions button { flex:1; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .demo-scroll { transition:none; } }

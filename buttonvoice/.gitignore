@@ -1,0 +1,9 @@
+node_modules/
+dist/
+release/*
+!release/ButtonVoice/
+!release/ButtonVoice-Demo/
+!release/ButtonVoice-Chrome-Edge.zip
+!release/ButtonVoice-Demo.zip
+test-results/
+.DS_Store

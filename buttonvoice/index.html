@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+    <meta name="description" content="ButtonVoice 按钮失语症：在本地扫描按钮的可访问名称，应用有依据的修复，对比模拟读屏效果。">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>ButtonVoice 按钮失语症</title>
+  </head>
+  <body>
+    <a href="#console" class="skip-link">跳过示例，进入检测控制台</a>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="ButtonVoice 首页"><span class="brand-icon" data-icon="AudioLines"></span><strong>ButtonVoice</strong><span class="brand-cn">按钮失语症</span></a>
+      <span class="local-badge"><span data-icon="ShieldCheck"></span>本地检测 · 无 AI 调用</span>
+    </header>
+
+    <main class="app-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div><p class="slogan">让每一个没有名字的按钮，重新拥有自己的声音。</p><h1 id="page-title">你的网页，有多少按钮正在失语？</h1><p class="subtitle">扫描无名称按钮，让数字世界更容易被听见。</p></div>
+        <button id="scan" class="button primary scan-button" type="button"><span data-icon="ScanLine"></span><span id="scan-label">开始无障碍扫描</span></button>
+      </section>
+
+      <div class="audit-toolbar" aria-label="本轮扫描状态">
+        <div class="metrics"><span>扫描按钮 <strong id="total-count">未扫描</strong></span><span class="metric-error">名称缺失 <strong id="missing-count">未扫描</strong></span><span class="metric-success">有效修复 <strong id="fixed-count">未扫描</strong></span></div>
+        <button id="reset" class="button quiet small" type="button"><span data-icon="RotateCcw"></span>重置演示</button>
+      </div>
+
+      <div class="workspace">
+        <section class="preview-panel panel" aria-labelledby="preview-title">
+          <div class="panel-heading"><h2 id="preview-title"><span data-icon="PanelsTopLeft"></span>网页实时预览</h2><span class="subtle">真实 DOM</span></div>
+          <div class="scene-picker"><label for="scene-select">示例网页</label><select id="scene-select"><option value="uncertain">不确定控件 · 确认练习</option><option value="original" selected>回声集 · 原始演示</option><option value="campus">南科生活 · 校园服务</option><option value="shop">柚子商店 · 电商</option><option value="library">山海图书馆 · 阅读服务</option><option value="volunteer">微光行动 · 志愿者工具</option></select></div>
+          <div class="demo-warning"><span data-icon="Info"></span><p>此区域故意包含名称缺失问题。<a href="#console">跳过示例</a></p></div>
+          <div id="preview" class="store-preview" role="region" aria-label="校园二手商城示例"></div>
+          <div class="preview-legend"><span><i class="legend-box issue" aria-hidden="true"></i>名称缺失</span><span><i class="legend-box fixed" aria-hidden="true"></i>已复查修复</span><span id="preview-hint">扫描后显示问题位置</span></div>
+          <div class="preview-note"><span data-icon="MousePointer2"></span><p>示例可以真实操作。窄屏可能隐藏部分控件，计数以当前实际显示的按钮为准。</p></div>
+        </section>
+
+        <section id="console" class="console-panel panel" aria-labelledby="console-title" tabindex="-1">
+          <div class="panel-heading"><h2 id="console-title"><span data-icon="SlidersHorizontal"></span>检测与修复</h2><span id="console-status" class="status-tag">等待扫描</span></div>
+          <div id="empty-state" class="empty-state"><span class="empty-icon" data-icon="AudioLines"></span><h3>看得见图标，听得见用途吗？</h3><p>开始扫描，在这里查看缺失的名称，<br>为按钮补上一句准确的表达。</p><div class="empty-example"><span>修复前 <b>“按钮”</b></span><span data-icon="ArrowRight"></span><span>修复后 <b>“加入收藏，按钮”</b></span></div><p class="empty-footnote">仅检查按钮名称缺失，不是完整无障碍审计。</p></div>
+          <div id="audit-content" hidden>
+            <div id="heart-presets" class="preset-mount"></div>
+            <div class="navigation-guide" aria-label="键盘与语音引导">
+              <div class="guide-buttons"><button id="guide-prev" class="button secondary small" aria-keyshortcuts="Alt+Shift+ArrowLeft">上一个问题</button><button id="guide-next" class="button secondary small" aria-keyshortcuts="Alt+Shift+ArrowRight">下一个问题</button><button id="guide-describe" class="button quiet small" aria-keyshortcuts="Alt+Shift+I">朗读位置与上下文</button></div>
+              <label class="check-row"><input id="guide-autospeak" type="checkbox">Tab 聚焦与切换时自动朗读</label>
+              <button id="guide-browse" class="button secondary small" type="button">进入网页，按 Tab 浏览</button>
+              <p class="help">Tab 前进，Shift+Tab 后退。焦点落在网页按钮时，朗读当前名称、顺序和所在位置。使用读屏软件时可关闭自动朗读。</p>
+              <details><summary>无需鼠标的操作方法</summary><p>Alt + Shift + 左右方向键切换并聚焦问题对象；Alt + Shift + Enter 定位当前对象；Alt + Shift + U 返回确认面板；Alt + Shift + I 朗读位置。普通 Tab 也可操作全部功能。使用读屏软件时可关闭自动朗读。</p></details>
+            </div>
+            <div class="issues-header"><h3 id="issues-title">本轮发现的问题</h3><button id="fix-all" class="button secondary small" type="button"><span data-icon="CheckCheck"></span>一键应用全部建议</button></div>
+            <div id="issues-list" class="issues-list" role="group" aria-label="选择一个问题查看详情"></div>
+            <p id="scan-summary" class="scan-summary"></p>
+            <div id="detail" class="detail" hidden>
+              <div class="detail-heading"><div><span id="element-type" class="element-type"></span><h3 id="detail-title"></h3></div><button id="locate" class="button quiet small" type="button" aria-keyshortcuts="Alt+Shift+Enter"><span data-icon="LocateFixed"></span>聚焦此对象</button></div>
+              <p id="issue-description" class="issue-description"></p>
+              <p id="context" class="control-context" tabindex="-1"></p>
+              <p id="candidate-warning" class="conflict-message" hidden>此元素可能可点击，但网页没有提供按钮语义。可定位或暂时跳过；需要网站维护者确认角色与键盘操作，不能仅补名称就算修复。</p>
+              <p id="evidence" class="suggestion-reason"></p>
+              <div id="candidate-options" hidden><label for="candidate-choice">选择一条线索作为草稿</label><select id="candidate-choice"></select></div>
+              <div class="current-name"><span>实际可访问名称</span><code id="current-name"></code></div>
+              <div class="suggestion-heading"><label for="suggested-name">建议名称</label><span id="suggestion-tag" class="subtle">规则建议</span></div>
+              <div class="edit-row"><input id="suggested-name" type="text" autocomplete="off" aria-describedby="suggestion-reason draft-status input-error"><button id="apply" class="button primary" type="button"><span data-icon="Check"></span>应用修复</button></div>
+              <p id="input-error" class="input-error" hidden></p>
+              <p id="suggestion-reason" class="suggestion-reason"></p><p id="draft-status" class="draft-status"></p>
+              <label id="confirmation" class="check-row" hidden><input id="confirmed" type="checkbox" aria-describedby="input-error">我已了解当前用途，确认这个名称准确</label>
+              <button id="defer" class="button quiet small">暂时跳过，保留待确认</button>
+              <button id="undo" class="button quiet small" disabled>撤销此项</button>
+              <p id="repair-conflict" class="conflict-message" hidden></p>
+
+              <div class="speech-heading"><h4><span data-icon="Volume2"></span>听见名称的变化</h4></div>
+              <div class="speech-grid"><div><p id="speech-before" class="speech-text"></p><button id="speak-before" class="button speech-button" type="button"><span data-icon="Play"></span>朗读修复前</button></div><div><p id="speech-after" class="speech-text"></p><button id="speak-after" class="button speech-button" type="button"><span data-icon="Play"></span><span id="speak-after-label">试听建议效果</span></button></div></div>
+              <p id="voice-status" class="voice-status" role="status"></p>
+              <p class="speech-disclaimer">模拟读屏效果，用于展示名称变化，不代表真实屏幕阅读器测试结果。</p>
+
+              <div class="code-section">
+                <details id="code-details"><summary>HTML 前后对比</summary><div class="code-grid"><div><span class="code-caption">首次扫描时的原始 HTML</span><pre tabindex="0" aria-label="修复前 HTML"><code id="before-html"></code></pre></div><div><span id="after-html-label" class="code-caption">待应用的修改预览</span><pre tabindex="0" aria-label="修复后或待应用 HTML"><code id="after-html"></code></pre></div></div></details>
+                <button id="copy" class="button quiet small" type="button"><span data-icon="Copy"></span>复制修复片段</button>
+              </div>
+              <textarea id="copy-fallback" class="copy-fallback" aria-label="请手动复制以下修复片段" readonly hidden></textarea>
+            </div>
+          </div>
+        </section>
+      </div>
+      <p id="announcement" class="announcement" role="status" aria-live="polite" aria-atomic="true">准备就绪。先扫描，再确认建议并应用修复。</p>
+      <footer class="footer"><span>名称检测 → 本地规则 → DOM 修复 → 重新计算</span><span>只检查按钮的可访问名称缺失</span></footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

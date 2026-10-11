@@ -1,0 +1,19 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>安装 ButtonVoice</title><link rel="stylesheet" href="./pages.css"></head>
+<body><main class="guide">
+<div class="brand"><img src="./icons/48.png" width="42" height="42" alt=""><div><strong>ButtonVoice</strong><span>按钮失语症 · 浏览器扩展</span></div></div>
+<h1>安装一次，在网页上直接检查。</h1>
+<p class="lead">不需要 Node.js、不需要命令行，也不需要启动服务器。你拿到的文件夹已经可以安装。</p>
+<section><h2>安装到 Chrome 或 Edge</h2><ol>
+<li><strong>解压安装包，保留 ButtonVoice 文件夹。</strong>文件夹内应能看到 <code>manifest.json</code>。安装后请保留该文件夹，不要移动或删除。</li>
+<li><strong>打开浏览器的扩展管理页面。</strong>Chrome 地址栏输入 <code>chrome://extensions</code>；Edge 输入 <code>edge://extensions</code>。</li>
+<li><strong>开启页面里的“开发者模式”。</strong>这是浏览器安装本地扩展的开关，不需要安装任何开发软件。</li>
+<li><strong>点击“加载已解压的扩展程序”。</strong>选择包含 <code>manifest.json</code> 的 <code>ButtonVoice</code> 文件夹，不是 ZIP 文件或其上一级。</li>
+<li><strong>把 ButtonVoice 固定到工具栏。</strong>打开一个普通网站，点击扩展图标，再点击“检查当前网页”。也可以使用 <code>Alt + Shift + B</code> 打开扩展。</li>
+</ol><p class="note">这是本地安装的体验版，尚未上架扩展商店。Chrome / Edge 为目标浏览器；实际验证范围请看随包 README。</p></section>
+<section><h2>第一次使用</h2><p>先在扩展弹窗中点击“先试试演示网页”。体验页随安装包提供，离线也能打开。</p><p>在真实网站上，右侧面板会列出缺少名称的按钮。选择一项，用“聚焦此对象”到达它，再返回面板，确认用途后填写名称并应用。再对比朗读，或展开 HTML 查看实际修改。</p><p>没有可靠依据时，需要人工填写名称；工具不会仅凭图标猜测用途。对通用网站逐项确认，不提供未经确认的自动批修。</p></section>
+<section><h2>不用鼠标也能定位</h2><p>点击“进入网页，按 Tab 浏览”，开启自动朗读并聚焦当前对象。之后用 Tab 前进、Shift+Tab 后退，停留在网页按钮时自动朗读当前名称、页面顺序和所在位置。连续切换会取消上一段语音；工具面板不会触发这套播报。已有读屏软件时可关闭“Tab 聚焦与切换时自动朗读”。</p><p><code>Alt + Shift + ← / →</code> 切换并聚焦问题对象；<code>Alt + Shift + Enter</code> 定位当前对象；<code>Alt + Shift + U</code> 返回确认面板；<code>Alt + Shift + I</code> 朗读完整上下文。定位不会替你点击，Tab 仍遵循网页原来的焦点顺序。</p><p>用途不清楚时可以“暂时跳过”。有冲突的命名线索不会自动预选；编辑草稿或改变按钮状态后，需要重新确认。疑似可点击但缺少按钮语义的元素单独列出，不能仅补名称就算修复。</p></section>
+<section><h2>为爱心选择含义</h2><p>展开“爱心含义预设”，在“收藏 / 取消收藏”和“点赞 / 取消点赞”中选择。工具先生成草稿；勾选确认这批爱心含义一致后，才批量应用并复查。</p><p>只作用于当前页中识别到的未命名爱心，跳过已有名称、手动编辑和暂时跳过的项目。相同预设可跟随页面提供的选中状态更新名称；更换含义不会静默覆盖已应用名称，需要先撤销再确认。</p><p>目前识别部分常见 SVG 爱心形状及图标标记，不做图片、Canvas 或 CSS 图形的视觉推断。同页爱心用途不一致时，保留逐项确认。</p></section>
+<section><h2>修改与隐私</h2><p>仅在你点击检查后访问当前网页。扫描、规则建议、修复和语音均在本地完成，不调用 AI、不上传网页内容、不保存浏览历史。</p><p>修复只改变当前页面。刷新通常会恢复网站原来的内容；“撤销此项”“撤销本轮修改”可恢复本工具写入前的命名属性。“撤销并退出”同时关闭面板。网页已经再次修改的值会被保留。</p><p>若要让网站的所有访客长期受益，需要网站维护者采用并发布这些修复。</p></section>
+<section><h2>遇到无法检查或无法出声</h2><p>浏览器设置页、扩展商店及其他受保护页面不能注入。打开普通 HTTP / HTTPS 网站后重试。双击打开的本地 HTML，需要在扩展详情中允许“访问文件网址”。</p><p>语音只使用浏览器可用的本地中文音色。如果没有音色或播放失败，前后文字对比仍可使用。朗读是名称变化的模拟，不替代 VoiceOver / NVDA 测试。</p><p>当前版本只扫描主页面的普通 DOM，不遍历 iframe 和组件的 Shadow DOM。它只检查名称缺失，不能证明整个网站满足无障碍规范。</p></section>
+<footer>ButtonVoice · 名称检测 → 人工确认 → 本地修复 → 重新计算</footer>
+</main></body></html>

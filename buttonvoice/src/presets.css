@@ -1,0 +1,12 @@
+.heart-preset { border:1px solid #495674; border-radius:7px; padding:11px 13px; margin:12px 0; color:#d2daed; font:13px/1.75 "Avenir Next","PingFang SC",system-ui,sans-serif; }
+.heart-preset summary { cursor:pointer; font-weight:600; color:#ececff; }
+.heart-preset p { margin:10px 0; }
+.heart-preset .preset-notes { margin-top:10px; }
+.heart-preset .preset-notes summary { min-height:44px; line-height:44px; font-weight:400; }
+.heart-preset > label { display:block; margin-top:12px; }
+.heart-preset select { display:block; width:100%; min-height:44px; padding:8px; color:#f2f4fd; background:#151e32; border:1px solid #7182a4; border-radius:6px; font:inherit; }
+.heart-preset .check-row { display:flex; gap:9px; align-items:flex-start; }
+.heart-preset input { flex:0 0 18px; width:18px; height:18px; margin-top:3px; }
+.heart-preset button { width:100%; min-height:44px; padding:9px 12px; background:#635bce; border:1px solid #837be1; border-radius:7px; color:#f2f4fd; font:inherit; }
+.heart-preset :focus-visible { outline:3px solid #c9d9ff; outline-offset:3px; }
+@media(hover:hover) and (pointer:fine) { .heart-preset button:hover:not(:disabled) { background:#7168d7; } }

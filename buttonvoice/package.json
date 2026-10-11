@@ -1,0 +1,28 @@
+{
+  "name": "buttonvoice",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5174",
+    "build": "vite build",
+    "build:extension": "node scripts/build-extension.mjs",
+    "build:demo": "node scripts/build-demo.mjs",
+    "preview": "vite preview --host 127.0.0.1 --port 5174",
+    "test": "node tests/browser.cjs",
+    "test:extension": "node tests/extension.cjs",
+    "test:extension-navigation": "node tests/extension-navigation.cjs",
+    "test:accessibility": "node tests/accessibility.cjs",
+    "test:presets": "node tests/presets.cjs",
+    "test:demo": "node tests/offline-demo.cjs",
+    "test:focus-speech": "node tests/focus-speech.cjs"
+  },
+  "dependencies": {
+    "dom-accessibility-api": "^0.7.1",
+    "lucide": "^1.55.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.0",
+    "vite": "^8.3.4"
+  }
+}

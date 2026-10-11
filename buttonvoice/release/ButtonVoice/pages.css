@@ -1,0 +1,53 @@
+:root { color-scheme:dark; font:15px/1.7 "Avenir Next","PingFang SC","Microsoft YaHei",system-ui,sans-serif; color:#f2f4fd; background:#0b1020; }
+* { box-sizing:border-box; }
+body { margin:0; }
+[hidden] { display:none!important; }
+button, select { font:inherit; }
+button, .button { display:inline-flex; align-items:center; justify-content:center; padding:11px 16px; min-height:44px; border:1px solid #7f77d8; border-radius:8px; background:#635bce; color:#f2f4fd; font-weight:600; text-decoration:none; cursor:pointer; }
+button:disabled { opacity:.5; cursor:not-allowed; }
+button:focus-visible, a:focus-visible, select:focus-visible, summary:focus-visible { outline:3px solid #c9d9ff; outline-offset:4px; }
+a { color:#c5c1ff; text-underline-offset:4px; }
+p, h1, h2, h3 { margin:0; }
+h1 { font-size:30px; line-height:1.4; letter-spacing:-.035em; font-weight:650; text-wrap:balance; }
+h2 { font-size:21px; line-height:1.5; }
+p { margin:10px 0; }
+.muted, small { color:#abb7d0; }
+.brand { display:flex; gap:11px; align-items:center; }
+.brand strong { font-size:21px; font-weight:750; letter-spacing:-.035em; }
+.brand span { display:block; color:#abb7d0; font-size:12px; line-height:1.4; }
+.popup { width:340px; padding:24px; }
+.popup h1 { font-size:22px; margin-top:24px; }
+.popup .muted { font-size:13px; margin-top:12px; }
+.popup .target { border-block:1px solid #35415c; padding:12px 0; margin:20px 0 14px; color:#cbd3e9; font-size:12px; overflow-wrap:anywhere; }
+.popup .primary { width:100%; }
+.popup #status { font-size:12px; color:#ffbeca; }
+.popup nav { display:flex; justify-content:space-between; gap:14px; margin:20px 0 15px; font-size:12px; }
+.popup footer { color:#abb7d0; font-size:12px; border-top:1px solid #35415c; padding-top:15px; }
+.guide { max-width:920px; padding:48px 28px 64px; margin:auto; }
+.guide .brand { margin-bottom:36px; }
+.guide h1 { max-width:650px; }
+.guide .lead { font-size:17px; max-width:680px; margin:18px 0 36px; color:#bbc6dd; }
+.guide section { border-top:1px solid #35415c; padding:28px 0; }
+.guide ol { padding-left:26px; }
+.guide li { margin:15px 0; padding-left:5px; }
+.guide li strong { display:block; }
+.guide code { padding:3px 7px; border:1px solid #35415c; background:#151e32; color:#d5d0ff; border-radius:5px; font:14px/1.6 "SFMono-Regular",Consolas,monospace; overflow-wrap:anywhere; }
+.guide .note { font-size:13px; color:#abb7d0; }
+.guide footer { border-top:1px solid #35415c; padding-top:22px; font-size:13px; color:#abb7d0; }
+.practice { max-width:1300px; padding:30px; margin:auto; }
+.practice header { display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.practice h1 { font-size:24px; margin-top:25px; }
+.practice .intro { max-width:690px; color:#abb7d0; font-size:14px; }
+.practice .toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:14px; margin:24px 0 16px; }
+.practice label { font-size:13px; }
+.practice select { color:#f2f4fd; background:#151e32; border:1px solid #64708d; border-radius:7px; min-height:44px; padding:8px 12px; }
+#practice-root { border-radius:12px; overflow:hidden; border:1px solid #35415c; }
+.plain-page { background:#f4f6fa; color:#182136; padding:35px; min-height:480px; }
+.plain-page h2 { font-size:24px; }
+.plain-page p { color:#46516b; }
+.plain-toolbar { display:flex; align-items:center; gap:14px; padding:22px 0; margin-top:22px; border-block:1px solid #bbc5d6; }
+.plain-toolbar button { background:#e0e6f3; color:#223253; border:1px solid #8090b0; font-weight:500; }
+.plain-toolbar svg { width:22px; height:22px; }
+.plain-note { margin-top:30px; max-width:650px; font-size:14px; }
+@media(max-width:600px) { .guide { padding:26px 20px; } h1 { font-size:26px; } .practice { padding:18px; } .practice header { align-items:flex-start; flex-direction:column; } .plain-page { padding:22px; } }
+@media(hover:hover) and (pointer:fine) { button:hover:not(:disabled), .button:hover { background:#7269da; } }

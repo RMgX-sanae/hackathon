@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ButtonVoice · 无障碍测试页面集</title><link rel="stylesheet" href="shell.css"><link rel="stylesheet" href="preview.css"></head>
+<body>
+<main class="shell">
+  <header class="shell-top"><div class="shell-mark"><span class="mark" aria-hidden="true">◉</span> ButtonVoice <span style="font-size:10px;color:#718ba3;font-weight:500">/ FIXTURE LAB</span></div><span class="shell-tag">MODULE 01 · 4 个真实 DOM 模拟网页</span></header>
+  <section class="shell-intro"><div><span style="letter-spacing:2px;color:#97dcb5;font-size:10px;font-weight:800">ACCESSIBILITY PLAYGROUND</span><h1>有些按钮很好看，<br><em>却从来没有自己的名字。</em></h1><p>四组可复用的网页演示素材，专为 ButtonVoice 的扫描、标注和修复流程设计。</p></div><div class="shell-stamp">纯 HTML / CSS / JavaScript<br>无需构建 · 无接口 · 离线可用</div></section>
+  <div class="shell-main">
+    <aside class="shell-sidebar" aria-label="切换模拟网页"><h2>CHOOSE A SCENE</h2>
+      <button class="site-tab" data-select="campus" aria-pressed="true"><strong>01 · 南科生活</strong><small>校园服务 / 5 个问题点</small></button>
+      <button class="site-tab" data-select="shop" aria-pressed="false"><strong>02 · 柚子商店</strong><small>购物场景 / 6 个问题点</small></button>
+      <button class="site-tab" data-select="library" aria-pressed="false"><strong>03 · 山海图书馆</strong><small>阅读服务 / 6 个问题点</small></button>
+      <button class="site-tab" data-select="volunteer" aria-pressed="false"><strong>04 · 微光行动</strong><small>志愿者工具 / 5 个问题点</small></button>
+      <div class="sidebar-note"><strong>给扫描模块的提示</strong>检测只针对 <code>#demo-root</code> 中的 DOM。故意未命名的按钮都配有唯一 <code>data-demo-id</code>。点击重置会还原被修复的元素。</div>
+    </aside>
+    <div class="shell-viewer"><div class="viewer-toolbar"><div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div><div class="viewer-address" id="address">preview.local / campus / home</div><div class="viewer-actions"><button type="button" id="wide" aria-pressed="true">电脑端</button><button type="button" id="mobile" aria-pressed="false">手机端</button><button type="button" id="reset">↻ 重置</button></div></div>
+      <div class="demo-scroll" id="viewport"><div id="demo-root" aria-label="待检测的模拟网页"></div></div>
+      <div class="viewer-footer"><span id="scene-desc">校园课表、校巴、校园卡服务的多场景按钮。</span><span>预设测试点 <strong id="scene-count">5 未命名 / 4 正常</strong> · 非实际检测结果</span></div>
+    </div>
+  </div>
+  <div class="help-list"><span><i></i> 图标按钮保留真实 DOM</span><span><i></i> 不会自动高亮问题</span><span><i></i> 支持人工修复 aria-label</span><span><i></i> 切页或重置即可恢复</span></div>
+  <p class="shell-footnote">集成用法：引入 <code>preview.css</code>、<code>preview.js</code>，调用 <code>ButtonVoicePreview.createPreview(container, { template: 'campus' })</code>。只检测返回的 <code>root</code> 或宿主 <code>container</code>，不要扫描整个展示外壳。</p>
+</main>
+<script src="preview.js"></script>
+<script>
+(function(){
+  const root=document.getElementById('demo-root'), tabs=document.querySelectorAll('[data-select]'),viewport=document.getElementById('viewport');
+  const templates=ButtonVoicePreview.listTemplates();
+  function change(id){const info=templates.find(t=>t.id===id)||templates[0];ButtonVoicePreview.createPreview(root,{template:info.id});tabs.forEach(tab=>tab.setAttribute('aria-pressed',String(tab.dataset.select===info.id)));document.getElementById('address').textContent=`preview.local / ${info.id} / home`;document.getElementById('scene-desc').textContent=info.description;document.getElementById('scene-count').textContent=`${info.missing.length} 未命名 / ${info.named.length} 正常`;viewport.scrollTop=0;}
+  tabs.forEach(tab=>tab.addEventListener('click',()=>change(tab.dataset.select)));
+  document.getElementById('reset').addEventListener('click',()=>{ButtonVoicePreview.resetPreview(root);viewport.scrollTop=0;});
+  ['wide','mobile'].forEach(id=>document.getElementById(id).addEventListener('click',()=>{const mobile=id==='mobile';viewport.classList.toggle('mode-mobile',mobile);document.getElementById('wide').setAttribute('aria-pressed',String(!mobile));document.getElementById('mobile').setAttribute('aria-pressed',String(mobile));}));
+  change('campus');
+})();
+</script>
+</body></html>
